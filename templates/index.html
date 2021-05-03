@@ -1,0 +1,315 @@
+{% extends 'base.html'%}
+{% block content %}
+
+    <!-- start banner Area -->
+			<section class="banner-area relative" id="home">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row fullscreen d-flex align-items-center justify-content-center">
+						<div class="banner-content col-lg-12">
+							<h1 class="text-white">
+								<span>1500+</span> Jobs posted last week
+							</h1>
+							<form action="search.html" class="serach-form-area">
+								<div class="row justify-content-center form-wrap">
+									<div class="col-lg-4 form-cols">
+										<input type="text" class="form-control" name="search" placeholder="what are you looging for?">
+									</div>
+									<div class="col-lg-2 form-cols">
+									    <button type="button" class="btn btn-info">
+									      <span class="lnr lnr-magnifier"></span> Search
+									    </button>
+									</div>
+								</div>
+							</form>
+							<p class="text-white"> <span>Search JOBS : </span> By Your Need </p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->
+
+
+    			<!-- Start features Area -->
+			<section class="features-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 col-md-6">
+							<div class="single-feature">
+								<h4>Searching</h4>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="single-feature">
+								<h4>Applying</h4>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="single-feature">
+								<h4>Security</h4>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="single-feature">
+								<h4>Notifications</h4>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End features Area -->
+
+
+
+			<!-- Start feature-cat Area -->
+			<section class="feature-cat-area pt-100" id="category">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Featured Job Categories</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="category.html">
+									<img src="img/o1.png" alt="">
+								</a>
+								<p>Accounting</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="category.html">
+									<img src="img/o2.png" alt="">
+								</a>
+								<p>Development</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="category.html">
+									<img src="img/o3.png" alt="">
+								</a>
+								<p>Technology</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="category.html">
+									<img src="img/o4.png" alt="">
+								</a>
+								<p>Media & News</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="category.html">
+									<img src="img/o5.png" alt="">
+								</a>
+								<p>Medical</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="category.html">
+									<img src="img/o6.png" alt="">
+								</a>
+								<p>Goverment</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End feature-cat Area -->
+
+			<!-- Start post Area -->
+			<section class="post-area section-gap">
+				<div class="container">
+					<div class="row justify-content-center d-flex">
+						<div class="col-lg-8 post-list">
+							<ul class="cat-list">
+								<li><a href="#">Recent</a></li>
+								<li><a href="#">Upcoming</a></li>
+								<li><a href="#">Last Date</a></li>
+								<li><a href="#">All Jobs</a></li>
+							</ul>
+{%  for data in data %}
+							<div class="single-post d-flex flex-row" >
+								<div class="details">
+									<div class="title d-flex flex-row justify-content-between">
+										<div class="titles" style="max-width: 100px;overflow: hidden;" >
+											<a href="#"><h4>{{ data.jobname}} </h4></a>
+											<h6>{{ data.main_category_name}} </h6>
+										</div>
+										<ul class="btns">
+											<li ><a  href="{% url 'jobs' %}?main_job={{data.id }}">View Details</a></li>
+										</ul>
+									</div>
+									<p class="address"><span class="lnr lnr-map"></span> {{ data.sub_sub_category_name}}</p>
+									<div class="row">
+										<div class="col-lg">
+											<h5>Start Date: {{ data.startdate}}</h5>
+										</div>
+										<div class="col-lg">
+											<h5>End Date: {{ data.lastdate}}</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+
+{%  endfor %}
+							 <!-- paginator -->
+							 <center>
+							 <div class="text-uppercase mx-auto pull-center" style="">
+								 <a class="text-uppercase ticker-btn" href="category.html"><<</a>
+								 <a class="text-uppercase ticker-btn" href="category.html">1</a>
+								 <a class="text-uppercase ticker-btn" href="category.html">2</a>
+								 <a class="text-uppercase ticker-btn" href="category.html">3</a>
+								 <a class="text-uppercase ticker-btn" href="category.html">>></a>
+							</div>
+						</center>
+						<!-- end paginator -->
+
+
+						</div>
+						<div class="col-lg-4 sidebar">
+
+							<div class="single-slidebar">
+								<h4>Top rated job posts</h4>
+								<div class="active-relatedjob-carusel">
+									<div class="single-rated">
+										<img class="img-fluid" src="img/r1.jpg" alt="">
+										<a href="single.html"><h4>Creative Art Designer</h4></a>
+										<h6>Premium Labels Limited</h6>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
+										</p>
+										<h5>Job Nature: Full time</h5>
+										<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
+										<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
+										<a href="view-jobs" class="btns text-uppercase">Apply job</a>
+									</div>
+									<div class="single-rated">
+										<img class="img-fluid" src="img/r1.jpg" alt="">
+										<a href="single.html"><h4>Creative Art Designer</h4></a>
+										<h6>Premium Labels Limited</h6>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
+										</p>
+										<h5>Job Nature: Full time</h5>
+										<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
+										<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
+										<a href="view-jobs.html" class="btns text-uppercase">Apply job</a>
+									</div>
+									<div class="single-rated">
+										<img class="img-fluid" src="img/r1.jpg" alt="">
+										<a href="single.html"><h4>Creative Art Designer</h4></a>
+										<h6>Premium Labels Limited</h6>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
+										</p>
+										<h5>Job Nature: Full time</h5>
+										<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
+										<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
+										<a href="view-jobs.html" class="btns text-uppercase">Apply job</a>
+									</div>
+								</div>
+							</div>
+
+
+
+							<div class="single-slidebar">
+								<h4>Carrer Advice Blog</h4>
+								<div class="blog-list">
+									<div class="single-blog " style="background:#000 url(img/blog1.jpg);">
+										<a href="single.html"><h4>Home Audio Recording <br>
+										For Everyone</h4></a>
+										<div class="meta justify-content-between d-flex">
+											<p>
+												02 Hours ago
+											</p>
+											<p>
+												<span class="lnr lnr-heart"></span>
+												06
+												 <span class="lnr lnr-bubble"></span>
+												02
+											</p>
+										</div>
+									</div>
+									<div class="single-blog " style="background:#000 url(img/blog2.jpg);">
+										<a href="single.html"><h4>Home Audio Recording <br>
+										For Everyone</h4></a>
+										<div class="meta justify-content-between d-flex">
+											<p>
+												02 Hours ago
+											</p>
+											<p>
+												<span class="lnr lnr-heart"></span>
+												06
+												 <span class="lnr lnr-bubble"></span>
+												02
+											</p>
+										</div>
+									</div>
+									<div class="single-blog " style="background:#000 url(img/blog1.jpg);">
+										<a href="single.html"><h4>Home Audio Recording <br>
+										For Everyone</h4></a>
+										<div class="meta justify-content-between d-flex">
+											<p>
+												02 Hours ago
+											</p>
+											<p>
+												<span class="lnr lnr-heart"></span>
+												06
+												 <span class="lnr lnr-bubble"></span>
+												02
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End post Area -->
+
+
+			<!-- Start callto-action Area -->
+			<section class="callto-action-area section-gap" id="join">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content col-lg-9">
+							<div class="title text-center">
+								<h1 class="mb-10 text-white">Join us today without any hesitation</h1>
+								<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+								<a class="primary-btn" href="#">Register Now</a>
+								<a class="primary-btn" href="#">Login</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End calto-action Area -->
+
+
+
+
+{% endblock %}

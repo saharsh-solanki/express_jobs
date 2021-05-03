@@ -1,0 +1,172 @@
+{% extends 'base.html'%}
+{% block content %}
+
+    <!-- start banner Area -->
+			<section class="banner-area relative" id="home">
+				<div class="overlay overlay-bg"></div>
+				<div class="container"style="height:300px;">
+					<div class="row fullscreen d-flex align-items-center justify-content-center" >
+                        <div class="banner-content col-lg-12">
+							<h1 class="text-white" style="margin-top:-150px;">
+								All Jobs
+							</h1>
+                        </div>
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->
+
+<br>
+
+
+    {%  if main_job %}
+<center>
+        <div class="" style="max-width: 500px;">
+            <div class="row border m-3 ">
+              <div class="col-4 p-3">
+                  <span style="">Job Name :</span>
+              </div>
+              <div class="col-6 p-3">
+                  {{ main_job.jobname}}
+              </div>
+            </div>
+        </div>
+
+        <div class="" style="max-width: 500px;">
+            <div class="row border m-3 ">
+              <div class="col-4 p-3">
+                  <span style="">Category :</span>
+              </div>
+              <div class="col-6 p-3">
+                  {{ main_job.main_category_name}}
+              </div>
+            </div>
+        </div>
+
+
+        <div class="" style="max-width: 500px;">
+            <div class="row border m-3 ">
+              <div class="col-4 p-3">
+                  <span style="">Sub Category :</span>
+              </div>
+              <div class="col-6 p-3">
+                  {{ main_job.sub_category_name}}
+              </div>
+            </div>
+        </div>
+
+
+        <div class="" style="max-width: 500px;">
+            <div class="row border m-3 ">
+              <div class="col-4 p-3">
+                  <span style="">Category :</span>
+              </div>
+              <div class="col-6 p-3">
+                  {{ main_job.sub_sub_category_name}}
+              </div>
+            </div>
+        </div>
+
+
+        <div class="" style="max-width: 500px;">
+            <div class="row border m-3 ">
+              <div class="col-4 p-3">
+                  <span style="">Start Date</span>
+              </div>
+              <div class="col-6 p-3">
+                  {{ main_job.startdate}}
+              </div>
+            </div>
+        </div>
+
+        <div class="" style="max-width: 500px;">
+            <div class="row border m-3 ">
+              <div class="col-4 p-3">
+                  <span style="">Last Date :</span>
+              </div>
+              <div class="col-6 p-3">
+                  {{ main_job.lastdate}}
+              </div>
+            </div>
+        </div>
+
+
+        <div class="" style="max-width: 500px;">
+            <div class="row border m-3 ">
+              <div class="col-4 p-3">
+                  <span style="">Offline Date :</span>
+              </div>
+              <div class="col-6 p-3">
+                  {{ main_job.offlinedate}}
+              </div>
+            </div>
+        </div>
+
+
+        <div class="" style="max-width: 500px;">
+            <div class="row border m-3 ">
+              <div class="col-4 p-3">
+                  <span style="">Apply Now</span>
+              </div>
+              <div class="col-6 p-3">
+                  <a class="btn btn-info" href="{{ main_job.applylink}}">Click Here</a>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="" style="max-width: 500px;">
+            <div class="row border m-3 ">
+              <div class="col-4 p-3">
+                  <span style="">Officila Notification</span>
+              </div>
+              <div class="col-6 p-3">
+                  <a class="btn btn-info" href="{{ main_job.official_notification_link}}">Click Here</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="" style="max-width: 500px;">
+            <div class="row border m-3 ">
+              <div class="col-4 p-3">
+                  <span style="">Official Website</span>
+              </div>
+              <div class="col-6 p-3">
+                  <a class="btn btn-info" href="{{ main_job.official_website_link}}">Click Here</a>
+              </div>
+            </div>
+        </div>
+</center>
+    {% endif %}
+
+    {%  if job_data %}
+
+
+    <div class="row ">
+{%  for job_data in job_data %}
+        <div class="col-lg-2 m-2" >
+               <div class="col p-4"  style="background:#f9f9ff;border:0.4px solid black;overflow: hidden;">
+                    <div class="details" style="max-width: 200px;">
+                                                <div class="title d-flex flex-row justify-content-between" >
+                                                    <div class="titles">
+                                                        <a href="{% url 'jobs' %}?main_job={{ job_data.id }}"><h4 class="">{{ job_data.jobname }}</h4></a>
+
+                                                    </div>
+
+                                                </div>
+                    </div>
+                </div>
+
+        </div>
+
+    {% endfor %}
+    </div>
+
+        {%  else %}
+
+        <div class="p-3 text-center" style="font-size: 30px;">No Job</div>
+
+    {%  endif %}
+
+
+{% endblock %}

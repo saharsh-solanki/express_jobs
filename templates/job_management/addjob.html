@@ -1,0 +1,62 @@
+{% extends 'job_management/base.html' %}
+
+{% block content %}
+
+    <br>
+    <div class="container shadow p-5 bg-light">
+      <form action="{% url 'doaddjob' %}" method="post">
+
+        {% csrf_token %}
+<center>
+        <p style="font-size:30px;">Add Jobs</p><br></center>
+
+    <select name="main_category_name" class="form-control">
+    <option disabled selected>Select Main Category</option>
+        {% for data in data %}
+            <option value="{{ data.main_category_name }}">{{ data.main_category_name }}</option>
+        {% endfor %}
+    </select><br>
+
+
+    <select name="sub_category_name" class="form-control">
+    <option disabled selected>Select Sub Category</option>
+        {% for dat in dat %}
+            <option value="{{ dat.sub_category_name }}">{{ dat.sub_category_name }}</option>
+        {% endfor %}
+    </select><br>
+
+
+    <select name="sub_sub_category_name" class="form-control">
+    <option disabled selected>Select sub sub Category</option>
+        {% for da in da %}
+            <option value="{{ da.sub_sub_category_name }}">{{ da.sub_sub_category_name }}</option>
+                {% endfor %}
+    </select><br>
+
+    <input type="text" class="form-control" placeholder="Enter Job Name" name="jobname" required><br>
+
+          <label>Select Job Start Date</label>
+    <input type="date" name="startdate" class="form-control" placeholder="Select Job Start Date" required><br>
+
+      <label>Select Job End Date</label>
+    <input type="date" name="lastdate" class="form-control" placeholder="Select Job End Date"  required><br>
+
+      <label>Select offline Date</label>
+    <input type="date" name="offlinedate" class="form-control" placeholder="Select offline Date" required><br>
+
+    <input type="text" class="form-control" placeholder="Enter Job Apply Link" name="applylink" required><br>
+
+    <input type="text" class="form-control" placeholder="Enter Official Notification Link" name="official_notification_link" required><br>
+
+    <input type="text" name="official_website_link" class="form-control" placeholder="Enter Official Website Link" required><br>
+
+    <input type="submit" class="btn " style="width: 100%;background: #ff8533;" value="Add This Job">
+    </form>
+    </div>
+
+</div>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{%  endblock %}
+
+

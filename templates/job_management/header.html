@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Manage Jobs</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup mx-auto">
+      <div class="navbar-nav ">
+        <a class="nav-link active " aria-current="page" href="{% url 'manager_dashboard' %}">Home</a>
+        <a class="nav-link" href="{% url 'maincategory' %}">Main Category</a>
+        <a class="nav-link " href="{% url 'subcategory' %}">Sub Category</a>
+        <a class="nav-link " href="{% url 'subsubcategory' %}">Sub Sub Category</a>
+        <a class="nav-link " href="{%  url 'addjob' %}">Add Job</a>
+        <a class="nav-link " href="{% url 'viewjob' %}">ViewJob</a>
+        <a class="nav-link " href="{% url 'logout' %}">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{%  for messages in messages %}
+<div class="alert alert-danger alert-dismissible fade show m-3" role="alert">
+  <strong>Response Message !</strong> {{ messages }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{%  endfor  %}

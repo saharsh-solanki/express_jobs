@@ -1,0 +1,44 @@
+{% load tag %}
+{% load static %}
+
+			  <header id="header" id="home">
+			    <div class="container">
+			    	<div class="row align-items-center justify-content-between d-flex">
+				      <div id="logo">
+				        <a href="/"><img src="{%  static 'img/logo.png' %}" alt="" title="" /></a>
+				      </div>
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+				          <li class="menu-active"><a href="/">Home</a></li>
+
+                        {%  for m in x|menu_data %}
+				          <li class="menu-has-children"><a href="#">{{ m.main_category_name}}</a>
+				            <ul>
+
+                                {%  for y in x|menu_data1:m.id %}
+								<li class="menu-has-children"><a href="#">{{ y.sub_category_name}}</a>
+                                <ul>
+
+                                {%  for k in x|menu_data2:y.id %}
+								<li ><a href="jobs?job_cat={{ k.id }}">{{ k.sub_sub_category_name}}</a></li>
+                                {%  endfor  %}
+				            </ul>
+                                </li>
+                                {%  endfor  %}
+				            </ul>
+				          </li>
+                        {%  endfor  %}
+
+                            <li><a href="{% url 'about-us' %}">About Us</a></li>
+
+				          <li><a href="{% url 'contact-us' %}">Contact</a></li>
+
+                            <!--
+				          <li><a class="ticker-btn" href="#">Signup</a></li>
+				          <li><a class="ticker-btn" href="#">Login</a></li>
+				          -->
+				        </ul>
+				      </nav><!-- #nav-menu-container -->
+			    	</div>
+			    </div>
+			  </header><!-- #header -->

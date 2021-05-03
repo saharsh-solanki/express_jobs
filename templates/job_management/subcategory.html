@@ -1,0 +1,90 @@
+{% extends 'job_management/base.html' %}
+
+{% block content %}
+
+    <br>
+<div class="row">
+    <div class="col p-5 bg-light">
+      <form action="{% url 'doaddsubcategory' %}" method="post">
+
+        {% csrf_token %}
+
+        <p style="font-size:25px;">Add Sub Category</p><br>
+
+    <select name="main_category_name" class="form-control">
+    <option disabled selected>Select Main Category</option>
+        {% for data in data %}
+            <option value="{{ data.main_category_name }}">{{ data.main_category_name }}</option>
+        {% endfor %}
+    </select>
+      <br>
+
+        <input type="text" class="form-control" name="sub_category_name" placeholder="Enter Sub Catagery"><br>
+        <input type="submit" class="btn " style="width: 100%;background: #ff8533;" value="Add">
+    </form>
+    </div>
+
+<div class="col bg-light m-1">
+    <table class="table table-striped table-hover">
+        <thead class="" style="background: #ff8533;">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Main Category Name</th>
+        <th scope="col">Sub Category Name</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead >
+  <tbody>
+  {%  for obj in obj %}
+    <tr>
+      <th scope="row">{{ obj.id }}</th>
+      <td>{{ obj.main_category_name }}</td>
+      <td> {{  obj.sub_category_name }} </td>
+      <td><input type="button" value="Delete" class="deletebtn btn btn-danger" data-sid="{{ obj.id }}"></td>
+    </tr>
+  {%  endfor  %}
+  </tbody>
+    </table>
+
+</div>
+
+</div>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+            $("tbody").on("click",".deletebtn",(function(){
+       let id=$(this).attr("data-sid");
+       let cs=$("input[name=csrfmiddlewaretoken]").val();
+        console.log('button');
+        console.log(id)
+
+        const my_data={id:id,csrfmiddlewaretoken: cs};
+        mythis=this;
+
+        $.ajax({
+            url:"{% url 'deletesubcategory' %}",
+            method:"GET",
+            data:my_data,
+            dataType:'JSON',
+            success:function(data){
+                if (data.status == "Delete"){
+                    console.log('data delete Successfully');
+                    $(mythis).closest("tr").fadeOut(1000);
+
+                }
+                else{
+                    console.log('data not delete Successfully');
+
+                }
+
+
+                             },
+        });
+
+    }));
+
+    });
+</script>
+
+{%  endblock %}
+

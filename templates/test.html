@@ -1,0 +1,161 @@
+
+			<!-- Start post Area -->
+			<section class="post-area section-gap">
+				<div class="container">
+					<div class="row justify-content-center d-flex">
+						<div class="col-lg-8 post-list">
+							<ul class="cat-list">
+								<li><a href="#">Recent</a></li>
+								<li><a href="#">Upcoming</a></li>
+								<li><a href="#">Last Date</a></li>
+								<li><a href="#">All Jobs</a></li>
+							</ul>
+							<div class="single-post d-flex flex-row" >
+								<div class="thumb">
+									<img src="img/post.png" class="mr-3" alt="" >
+									<ul class="tags">
+
+									</ul>
+
+								</div>
+		{% for data in data %}
+								<div class="details">
+									<div class="title d-flex flex-row justify-content-between">
+										<div class="titles">
+											<a href="#"><h4>{{ data.jobname}} </h4></a>
+											<h6>{{ data.main_category_name}} </h6>
+										</div>
+										<ul class="btns">
+											<li ><a  href="{% url 'jobs' %}?main_job={{ job_data.id }}">View Details</a></li>
+										</ul>
+									</div>
+									<p class="address"><span class="lnr lnr-map"></span> {{ data.sub_sub_category_name}}</p>
+									<div class="row">
+										<div class="col-lg">
+											<h5>Start Date: {{ data.startdate}}</h5>
+										</div>
+										<div class="col-lg">
+											<h5>End Date: {{ data.lastdate}}</h5>
+										</div>
+									</div>
+
+								</div>
+							</div>
+{% endfor %}
+
+							 <!-- paginator -->
+							 <center>
+							 <div class="text-uppercase mx-auto pull-center" style="">
+								 <a class="text-uppercase ticker-btn" href="category.html"><<</a>
+								 <a class="text-uppercase ticker-btn" href="category.html">1</a>
+								 <a class="text-uppercase ticker-btn" href="category.html">2</a>
+								 <a class="text-uppercase ticker-btn" href="category.html">3</a>
+								 <a class="text-uppercase ticker-btn" href="category.html">>></a>
+							</div>
+						</center>
+						<!-- end paginator -->
+
+
+						</div>
+						<div class="col-lg-4 sidebar">
+
+							<div class="single-slidebar">
+								<h4>Top rated job posts</h4>
+								<div class="active-relatedjob-carusel">
+									<div class="single-rated">
+										<img class="img-fluid" src="img/r1.jpg" alt="">
+										<a href="single.html"><h4>Creative Art Designer</h4></a>
+										<h6>Premium Labels Limited</h6>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
+										</p>
+										<h5>Job Nature: Full time</h5>
+										<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
+										<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
+										<a href="view-jobs" class="btns text-uppercase">Apply job</a>
+									</div>
+									<div class="single-rated">
+										<img class="img-fluid" src="img/r1.jpg" alt="">
+										<a href="single.html"><h4>Creative Art Designer</h4></a>
+										<h6>Premium Labels Limited</h6>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
+										</p>
+										<h5>Job Nature: Full time</h5>
+										<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
+										<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
+										<a href="view-jobs.html" class="btns text-uppercase">Apply job</a>
+									</div>
+									<div class="single-rated">
+										<img class="img-fluid" src="img/r1.jpg" alt="">
+										<a href="single.html"><h4>Creative Art Designer</h4></a>
+										<h6>Premium Labels Limited</h6>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
+										</p>
+										<h5>Job Nature: Full time</h5>
+										<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
+										<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
+										<a href="view-jobs.html" class="btns text-uppercase">Apply job</a>
+									</div>
+								</div>
+							</div>
+
+
+
+							<div class="single-slidebar">
+								<h4>Carrer Advice Blog</h4>
+								<div class="blog-list">
+									<div class="single-blog " style="background:#000 url(img/blog1.jpg);">
+										<a href="single.html"><h4>Home Audio Recording <br>
+										For Everyone</h4></a>
+										<div class="meta justify-content-between d-flex">
+											<p>
+												02 Hours ago
+											</p>
+											<p>
+												<span class="lnr lnr-heart"></span>
+												06
+												 <span class="lnr lnr-bubble"></span>
+												02
+											</p>
+										</div>
+									</div>
+									<div class="single-blog " style="background:#000 url(img/blog2.jpg);">
+										<a href="single.html"><h4>Home Audio Recording <br>
+										For Everyone</h4></a>
+										<div class="meta justify-content-between d-flex">
+											<p>
+												02 Hours ago
+											</p>
+											<p>
+												<span class="lnr lnr-heart"></span>
+												06
+												 <span class="lnr lnr-bubble"></span>
+												02
+											</p>
+										</div>
+									</div>
+									<div class="single-blog " style="background:#000 url(img/blog1.jpg);">
+										<a href="single.html"><h4>Home Audio Recording <br>
+										For Everyone</h4></a>
+										<div class="meta justify-content-between d-flex">
+											<p>
+												02 Hours ago
+											</p>
+											<p>
+												<span class="lnr lnr-heart"></span>
+												06
+												 <span class="lnr lnr-bubble"></span>
+												02
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End post Area -->

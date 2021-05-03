@@ -1,0 +1,87 @@
+{% extends 'job_management/base.html' %}
+
+{% block content %}
+
+ <br>
+    <div class="container shadow p-5 bg-light">
+      <form action="{% url 'doupdatejob' id=data.id %}" method="post">
+
+        {% csrf_token %}
+<center>
+        <p style="font-size:30px;">Update Job Jobs</p><br></center>
+{{ data.main_category_name }}
+    <select name="main_category_name" class="form-control">
+    <option value="{{ data.main_category_name }}" selected>{{data.main_category_name}}</option>
+        {% for dataa in dataa %}
+            <option value="{{ dataa.main_category_name }}">{{ dataa.main_category_name }}</option>
+        {% endfor %}
+    </select><br>
+
+
+    <select name="sub_category_name" class="form-control">
+    <option selected>{{ data.sub_category_name}}</option>
+        {% for dat in dat %}
+            <option value="{{ dat.sub_category_name }}">{{ dat.sub_category_name }}</option>
+        {% endfor %}
+    </select><br>
+
+
+    <select name="sub_sub_category_name" class="form-control">
+    <option  selected>{{ data.sub_sub_category_name}}</option>
+        {% for da in da %}
+            <option value="{{ da.sub_sub_category_name }}">{{ da.sub_sub_category_name }}</option>
+        {% endfor %}
+    </select><br>
+
+    <input type="text" class="form-control" placeholder="Enter Job Name" value="{{ data.jobname }}" name="jobname" required><br>
+
+          <label>Select Job Start Date</label>
+    <input type="date" class="form-control" name="startdate" value="{{ data.startdate|date:'Y-m-d' }}" placeholder="Select Job Start Date" required><br>
+
+      <label>Select Job End Date</label>
+    <input type="date" class="form-control" name="lastdate" value="{{ data.lastdate|date:'Y-m-d' }}" placeholder="Select Job End Date"  required><br>
+
+      <label>Select offline Date</label>
+    <input type="date" name="offlinedate" class="form-control" value="{{ data.offlinedate|date:'Y-m-d'}}" placeholder="Select offline Date" required><br>
+
+    <input type="text" class="form-control" value="{{ data.applylink }}" placeholder="Enter Job Apply Link" name="applylink" required><br>
+
+    <input type="text" class="form-control" value="{{ data.official_notification_link }}" placeholder="Enter Official Notification Link" name="official_notification_link" required><br>
+
+    <input type="text" name="official_website_link" value="{{ data.official_website_link}}" class="form-control" placeholder="Enter Official Website Link" required><br>
+
+    <input type="submit" class="btn " style="width: 100%;background: #ff8533;" value="Update">
+    </form>
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{%  endblock %}
+
+
+
+
+<form action="{% url 'doupdatejob' id=data.id %}" method="post">
+    {% csrf_token %}
+
+<p>Job Name</p>
+<input type="text" name="jobname"  value="{{ data.jobname }}" required>
+<p>Start Date <small>({{ data.lastdate }})</small></p>
+<input type="date" name="startdate" value="{{ data.startdate }}" required>
+
+<p>End Date <small>({{ data.lastdate }})</small></p>
+<input type="date" name="lastdate" value="{{ data.lastdate }}" required>
+<p>Offline Date <small>({{ data.lastdate }})</small></p>
+<input type="date" name="offlinedate" value="{{ data.offlinedate}}" required>
+<p>Apply Link</p>
+<input type="text" name="applylink" value="{{ data.applylink }}" required>
+<p>Official Notification Link</p>
+<input type="text" name="official_notification_link" value="{{ data.official_notification_link }}" required>
+<p>official_website_link</p>
+<input type="text" name="official_website_link" value="{{ data.official_website_link}}" required>
+<input type="submit" value="Update">
+</form>
+</body>
+</html>
