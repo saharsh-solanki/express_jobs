@@ -125,6 +125,15 @@ USE_L10N = True
 USE_TZ = True
 
 
+#email variables
+EMAIL_HOST="mail.freekamall.tech"
+EMAIL_PORT=26
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER="investit@freekamall.tech"
+EMAIL_HOST_PASSWORD="s@S7223889629"
+EMAIL_USE_SSL=False
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
