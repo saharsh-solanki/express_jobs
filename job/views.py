@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.core.mail import EmailMessage, send_mail
 
 # Create your views here.
 from job.models import contact
@@ -44,6 +45,23 @@ def contact_us(request):
         message = request.POST['name']
         data = contact(name=name,email=email,message=message)
         data.save()
+        
+        //send message to admin
+        send_mail(
+                "New Query",
+                'You Have Recived New Query <br><br> Name => '+name+'/n Email => '+email+'/n Message => '+message,
+                settings.EMAIL_HOST_USER,
+                ['solankiharsh5888@gmail.com'],
+                fail_silently=False,
+            )
+        //send message to sended itself
+        send_mail(
+                "Success",
+                'We Have Recived Your Your Query We Will Reply To You As Soon As Possible',
+                settings.EMAIL_HOST_USER,
+                ['solankiharsh5888@gmail.com'],
+                fail_silently=False,
+            )
         messages.success(request,'We Have Recived Your Query We Will Reply To You As Soon As Possible!!')
         return redirect('contact-us')
     else:
