@@ -26,7 +26,7 @@ SECRET_KEY = 'c=nf=xm4*za@a@om+0xabn&z)qqrnc)!d-&m91)inct=-xn(0x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 mimetypes.add_type('text/css','.css',True)
