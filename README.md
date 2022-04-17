@@ -1,7 +1,7 @@
 # Express JOB
 
 ## Description : -  
-### An Amazing Job website with amazing admin pannel . 
+### An Amazing Job website with amazing admin pannel . A Job Needer find the suitable job .
 
 ## Feature : - 
 * User Will get Notify for every job post 
